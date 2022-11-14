@@ -1,5 +1,5 @@
 import BlogLayout from '../layouts/BlogLayout'
-import AllPostsPage from '../pages/AllPostsPage'
+import BlogPage from '../pages/BlogPage'
 import SimplePage from '../pages/SimplePage'
 
 const BlogRoutes = {
@@ -7,7 +7,7 @@ const BlogRoutes = {
   element: <BlogLayout />,
   children: [
     {
-      element: <AllPostsPage />,
+      element: <BlogPage />,
       index: true
     },
     {

@@ -1,10 +1,12 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import { IPost } from "../../models/IPost";
-
+import { BASE_URL } from '../../config'
 
 export const postAPI = createApi({
     reducerPath: 'postAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3000'}),
+    baseQuery: fetchBaseQuery({
+      baseUrl: `${BASE_URL}`
+    }),
     tagTypes: ['Post'],
     endpoints: (build) => ({
         fetchAllPosts: build.query<IPost[], number>({

@@ -26,7 +26,7 @@ export default function BlogLayout () {
         </Header>
         <Content
           className="site-layout"
-          style={{ padding: '0 50px', marginTop: 64 }}
+          style={{ padding: '0 50px', margin: ' 84px auto 0', maxWidth: 1200 }}
         >
           <Outlet />
         </Content>
