@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Divider, Typography } from 'antd'
+import Seo from '../../components/SEO';
 const { Title } = Typography
 
 const gridStyle: React.CSSProperties = {
@@ -12,6 +13,11 @@ const gridStyle: React.CSSProperties = {
 const HomePage: React.FC = () => {
   return (
     <>
+      <Seo
+        title='Home'
+        metaDescription='Home page'
+        metaKeywords='Home page Keywords'
+      />
       <div className='alignCenter pt50'>
         <Title>React Template using:</Title>
         <Title level={2} type='secondary'>TypeScript, Ant Design, React Toolkit, RTK Query</Title>

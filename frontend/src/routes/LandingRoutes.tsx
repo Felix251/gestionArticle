@@ -1,5 +1,7 @@
 
 import BlankLayout from '../layouts/LandingLayout'
+import AboutPage from '../pages/AboutPage'
+import ContactUsPage from '../pages/ContactUsPage'
 import HomePage from '../pages/HomePage'
 
 const LandingRoutes = {
@@ -12,11 +14,11 @@ const LandingRoutes = {
     },
     {
       path: '/about',
-      element: <>About Us</>,
+      element: <AboutPage />,
     },
     {
       path: '/contact-us',
-      element: <>Contact Us</>,
+      element: <ContactUsPage />,
     }
   ]
 }
