@@ -1,9 +1,11 @@
 import { Layout, Menu, Row, Col } from 'antd'
+import { NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo'
 
 const { Header } = Layout
 
 const HeaderSite = () => {
+  const location = useLocation()
   return (
     <Header
       data-theme='light'
@@ -18,12 +20,22 @@ const HeaderSite = () => {
             style={{ border: 0, background: 'transparent' }}
             theme='light'
             mode='horizontal'
-            defaultSelectedKeys={['2']}
-            items={new Array(3).fill(null).map((_, index) => ({
-              key: String(index + 1),
-              label: `nav ${index + 1}`
-            }))}
-          />
+            defaultSelectedKeys={['/']}
+            selectedKeys={[location.pathname]}
+          >
+            <Menu.Item key='/'>
+              <NavLink to='/'>Home</NavLink>
+            </Menu.Item>
+            <Menu.Item key='/articles'>
+              <NavLink to='/articles'>Articles</NavLink>
+            </Menu.Item>
+            <Menu.Item key='/about'>
+              <NavLink to='/about'>About Us</NavLink>
+            </Menu.Item>
+            <Menu.Item key='/contact-us'>
+              <NavLink to='/contact-us'>Contact Us</NavLink>
+            </Menu.Item>
+          </Menu>
         </Col>
       </Row>
     </Header>

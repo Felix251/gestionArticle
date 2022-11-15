@@ -36,7 +36,7 @@ const PostList = () => {
         <div>
           <button onClick={handleCreate}>Add new post</button>
         </div>
-        <Divider orientation="left">All Posts</Divider>
+        <Divider orientation="center">Articles</Divider>
         {isLoading && <SpinnerPostList />}
         {error && <h1>Something wrong...</h1>}
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>

@@ -3,7 +3,7 @@ import BlogPage from '../pages/BlogPage'
 import SinglePostPage from '../pages/SinglePostPage'
 
 const BlogRoutes = {
-  path: '/',
+  path: '/articles',
   element: <BlogLayout />,
   children: [
     {
@@ -11,7 +11,7 @@ const BlogRoutes = {
       index: true
     },
     {
-      path: '/posts/:postId',
+      path: '/articles/:postId',
       element: <SinglePostPage />
     }
   ]

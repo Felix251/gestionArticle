@@ -56,3 +56,12 @@ footer.site-footer {
   text-align: right;
   padding-top: 20px;
 }
+
+/* common styles: */
+.alignCenter {
+  text-align: center;
+}
+
+.pt50 {
+  padding-top: 50px;
+}

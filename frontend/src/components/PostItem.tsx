@@ -45,7 +45,7 @@ const PostItem = ({post, remove, update}: PostItemProps) => {
           description={post.body.substring(0, 100)}
         />
         <div className='readMoreWrap'>
-          <Link to={`/posts/${post.id}`}>Read more...</Link>
+          <Link to={`/articles/${post.id}`}>Read more...</Link>
         </div>
       </Card>
     );
