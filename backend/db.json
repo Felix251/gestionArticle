@@ -52,13 +52,6 @@
     {
       "postImage": "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
       "userId": 2,
-      "id": 14,
-      "title": "voluptatem eligendi optio",
-      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
-    },
-    {
-      "postImage": "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
-      "userId": 2,
       "id": 16,
       "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
       "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
@@ -649,6 +642,11 @@
       "title": "Post title",
       "body": "Post title",
       "id": 101
+    },
+    {
+      "title": null,
+      "body": null,
+      "id": 102
     }
   ]
 }
