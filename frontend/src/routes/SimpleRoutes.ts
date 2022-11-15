@@ -1,5 +1,5 @@
 
-import BlankLayout from '../layouts/BlankLayout'
+import BlankLayout from '../layouts/LandingLayout'
 
 const SimpleRoutes = {
   // path: '/about',

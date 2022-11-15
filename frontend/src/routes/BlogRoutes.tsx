@@ -1,6 +1,6 @@
 import BlogLayout from '../layouts/BlogLayout'
 import BlogPage from '../pages/BlogPage'
-import SimplePage from '../pages/SimplePage'
+import SinglePostPage from '../pages/SinglePostPage'
 
 const BlogRoutes = {
   path: '/',
@@ -11,8 +11,8 @@ const BlogRoutes = {
       index: true
     },
     {
-      path: 'about',
-      element: <SimplePage />
+      path: '/posts/:postId',
+      element: <SinglePostPage />
     }
   ]
 }

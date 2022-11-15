@@ -1,7 +1,8 @@
 import React from 'react';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
+import { Avatar, Button, Card } from 'antd';
 import {IPost} from "../models/IPost";
+import { Link } from 'react-router-dom';
 
 const { Meta } = Card;
 
@@ -41,8 +42,11 @@ const PostItem = ({post, remove, update}: PostItemProps) => {
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
           title={post.title}
           // {post.id}
-          description={post.body}
+          description={post.body.substring(0, 100)}
         />
+        <div className='readMoreWrap'>
+          <Link to={`/posts/${post.id}`}>Read more...</Link>
+        </div>
       </Card>
     );
 };

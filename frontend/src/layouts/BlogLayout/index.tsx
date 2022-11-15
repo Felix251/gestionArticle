@@ -1,36 +1,22 @@
-import * as React from 'react'
-import { Layout, Menu, Row, Col } from 'antd';
+import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
+import FooterSite from '../../components/UI/FooterSite'
+import HeaderSite from '../../components/UI/HeaderSite'
 
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout
 
 export default function BlogLayout () {
   return (
     <>
-      <Layout className="layout">
-        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-          <Row>
-            <Col span={8}>Logo</Col>
-            <Col span={8} offset={8}>
-              <Menu
-                theme="dark"
-                mode="horizontal"
-                defaultSelectedKeys={['2']}
-                items={new Array(3).fill(null).map((_, index) => ({
-                  key: String(index + 1),
-                  label: `nav ${index + 1}`,
-                }))}
-              />
-            </Col>
-          </Row>
-        </Header>
+      <Layout className='site-layout'>
+        <HeaderSite />
         <Content
-          className="site-layout"
-          style={{ padding: '0 50px', margin: ' 84px auto 0', maxWidth: 1200 }}
+          className='site-layout'
+          style={{ padding: '0 50px', margin: ' 84px auto 0', width: '100%', maxWidth: 1200 }}
         >
           <Outlet />
         </Content>
-        <Footer>Footer</Footer>
+        <FooterSite />
       </Layout>
     </>
   )

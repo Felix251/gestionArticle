@@ -3,7 +3,7 @@ import { postAPI } from "../store/api/postAPI";
 import PostItem from "./PostItem";
 import { IPost } from "../models/IPost";
 import { Col, Divider, Row, Pagination } from 'antd';
-import type { PaginationProps } from 'antd';
+// import type { PaginationProps } from 'antd';
 import SpinnerPostList from './SpinnerPostList';
 
 const PostList = () => {
@@ -26,10 +26,10 @@ const PostList = () => {
       updatePost(post)
     }
 
-    const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
-      console.log(current, pageSize);
-      // setLimit(10)
-    };
+    // const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
+    //   console.log(current, pageSize);
+    //   // setLimit(10)
+    // };
 
     return (
       <>

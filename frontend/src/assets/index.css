@@ -16,13 +16,43 @@ code {
 
 /* App Styles */
 
+.logo-site {
+  margin-top: 17px;
+}
+
+section.ant-layout {
+  min-height: 100vh;
+}
+
+footer.site-footer {
+  text-align: center;
+}
+
+.error-wrap {
+  padding-top: 150px;
+}
+
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.site-layout .site-layout-header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(251, 251, 251, 0.8);
+}
+
 [data-theme="dark"] .site-layout .site-layout-background {
   background: #141414;
 }
 
 [data-theme="light"] .site-layout .site-layout-background {
   background: #fff;
+}
+
+.readMoreWrap {
+  text-align: right;
+  padding-top: 20px;
 }
