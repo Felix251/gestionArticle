@@ -29,7 +29,7 @@ const PostItem = ({post, remove, update}: PostItemProps) => {
         cover={
           <img
             alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            src={post.postImage}
           />
         }
         actions={[
