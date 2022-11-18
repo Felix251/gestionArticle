@@ -22,7 +22,7 @@ const PostList = () => {
       deletePost(post)
     }
 
-    const handleUpdate = (post: IPost) => {
+    const handlePostUpdate = (post: IPost) => {
       updatePost(post)
     }
 
@@ -44,7 +44,7 @@ const PostList = () => {
             <Col className="gutter-row" span={8} key={post.id}>
               <PostItem
                 remove={handleRemove}
-                update={handleUpdate}
+                update={handlePostUpdate}
                 post={post}
               />
             </Col>

@@ -1,17 +1,17 @@
 import { Button, Divider } from 'antd';
-import { Await, useParams, Link, useAsyncValue, useLoaderData, useNavigate } from 'react-router-dom'
-import { IPost } from '../../models/IPost';
+import { useParams, useNavigate } from 'react-router-dom'
 import { postAPI } from '../../store/api/postAPI'
 import { ArrowLeftOutlined } from '@ant-design/icons'
+// import { IPost } from '../../models/IPost';
 
-interface SinglePostPage {
-  match: {};
-}
+// interface SinglePostPage {
+//   match: {};
+// }
 
  
 const SinglePostPage = () => {
   // const { postId } = match.params
-  const {id} = useParams();
+  const { id } = useParams()
   // const { id, post } = useLoaderData()
   const goBack = () => navigate(-1)
   const navigate = useNavigate()

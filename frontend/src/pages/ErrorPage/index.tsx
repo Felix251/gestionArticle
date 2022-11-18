@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, useRouteError, useNavigate } from 'react-router-dom'
-import { Button, Empty, Layout, Typography } from 'antd'
+import { Button, Empty, Typography } from 'antd'
 
 const { Title } = Typography
 
