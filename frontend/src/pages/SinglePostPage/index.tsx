@@ -1,26 +1,18 @@
-import { Button, Divider } from 'antd';
+import { Button, Divider, Card } from 'antd'
 import { useParams, useNavigate } from 'react-router-dom'
 import { postAPI } from '../../store/api/postAPI'
 import { ArrowLeftOutlined } from '@ant-design/icons'
-// import { IPost } from '../../models/IPost';
 
-// interface SinglePostPage {
-//   match: {};
-// }
-
- 
 const SinglePostPage = () => {
-  // const { postId } = match.params
-  const { id } = useParams()
-  // const { id, post } = useLoaderData()
+  const { postId } = useParams()
   const goBack = () => navigate(-1)
   const navigate = useNavigate()
   const {
     data: post,
     isFetching,
     isError
-    // isSuccess 
-  } = postAPI.useGetSinglePostQuery(id)
+    // isSuccess
+  } = postAPI.useGetSinglePostQuery(postId)
   return (
     <>
       <Button
@@ -32,12 +24,12 @@ const SinglePostPage = () => {
       </Button>
       <Divider />
       {isFetching && <>Loading...</>}
-      {isError && <>Error</>}
+      {isError && <>Something goes Wrong</>}
       {post &&
-        <>
+        <Card>
           <h1>{post.title}</h1>
           <p>{post.body}</p>
-        </>
+        </Card>
       }
       {/* <Link to={`/editPost/${post.id}`} className='button'>
         Edit Post
