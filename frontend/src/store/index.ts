@@ -1,15 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { postAPI } from './api/postAPI';
- 
+import { postAPI } from './api/postAPI'
 
 export const store = configureStore({
   reducer: {
     // auth: authReducer
-    [postAPI.reducerPath]: postAPI.reducer
+    [postAPI.reducerPath]: postAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({}).concat([postAPI.middleware]),
-});
+})
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>

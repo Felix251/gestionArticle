@@ -1,4 +1,3 @@
-
 import BlankLayout from '../layouts/LandingLayout'
 import AboutPage from '../pages/AboutPage'
 import ContactUsPage from '../pages/ContactUsPage'
@@ -10,7 +9,7 @@ const LandingRoutes = {
   children: [
     {
       element: <HomePage />,
-      index: true
+      index: true,
     },
     {
       path: '/about',
@@ -19,8 +18,8 @@ const LandingRoutes = {
     {
       path: '/contact-us',
       element: <ContactUsPage />,
-    }
-  ]
+    },
+  ],
 }
 
 export default LandingRoutes

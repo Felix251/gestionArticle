@@ -8,13 +8,13 @@ const BlogRoutes = {
   children: [
     {
       element: <BlogPage />,
-      index: true
+      index: true,
     },
     {
       path: '/articles/:postId',
-      element: <SinglePostPage />
-    }
-  ]
+      element: <SinglePostPage />,
+    },
+  ],
 }
 
 export default BlogRoutes

@@ -1,4 +1,8 @@
-import { isRouteErrorResponse, useRouteError, useNavigate } from 'react-router-dom'
+import {
+  isRouteErrorResponse,
+  useRouteError,
+  useNavigate,
+} from 'react-router-dom'
 import { Button, Empty, Typography } from 'antd'
 
 const { Title } = Typography
@@ -6,7 +10,7 @@ const { Title } = Typography
 const ErrorPage = () => {
   const error = useRouteError()
   const navigate = useNavigate()
-  const goHome = () => navigate('/', {replace: true})
+  const goHome = () => navigate('/', { replace: true })
 
   if (isRouteErrorResponse(error)) {
     return (
@@ -19,23 +23,15 @@ const ErrorPage = () => {
   }
 
   return (
-    <div className='error-wrap'>
+    <div className="error-wrap">
       <Empty
         image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
         imageStyle={{
-          height: 160
+          height: 160,
         }}
-        description={
-          <Title level={2}>
-            Something goes Wrong
-          </Title>
-        }
+        description={<Title level={2}>Something goes Wrong</Title>}
       >
-        <Button
-          type='primary'
-          size='large'
-          onClick={goHome}
-        >
+        <Button type="primary" size="large" onClick={goHome}>
           Back to Home Page
         </Button>
       </Empty>
@@ -43,4 +39,4 @@ const ErrorPage = () => {
   )
 }
 
-export default ErrorPage;
+export default ErrorPage

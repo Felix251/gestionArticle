@@ -2,7 +2,7 @@ import ErrorPage from '../pages/ErrorPage'
 
 const ErrorRoutes = {
   path: '*',
-  element: <ErrorPage />
+  element: <ErrorPage />,
 }
 
 export default ErrorRoutes

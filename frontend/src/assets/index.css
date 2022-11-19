@@ -44,11 +44,11 @@ footer.site-footer {
   background: rgba(251, 251, 251, 0.8);
 }
 
-[data-theme="dark"] .site-layout .site-layout-background {
+[data-theme='dark'] .site-layout .site-layout-background {
   background: #141414;
 }
 
-[data-theme="light"] .site-layout .site-layout-background {
+[data-theme='light'] .site-layout .site-layout-background {
   background: #fff;
 }
 

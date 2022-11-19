@@ -1,26 +1,28 @@
-import React from 'react';
+import React from 'react'
 import { Card, Divider, Typography } from 'antd'
-import Seo from '../../components/SEO';
+import Seo from '../../components/SEO'
 const { Title } = Typography
 
 const gridStyle: React.CSSProperties = {
   width: '25%',
   textAlign: 'center',
   fontWeight: 'bold',
-  color: '#333'
-};
+  color: '#333',
+}
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Seo
-        title='Home'
-        metaDescription='Home page'
-        metaKeywords='Home page Keywords'
+        title="Home"
+        metaDescription="Home page"
+        metaKeywords="Home page Keywords"
       />
-      <div className='alignCenter pt50'>
+      <div className="alignCenter pt50">
         <Title>React Template using:</Title>
-        <Title level={2} type='secondary'>TypeScript, Ant Design, React Toolkit, RTK Query</Title>
+        <Title level={2} type="secondary">
+          TypeScript, Ant Design, React Toolkit, RTK Query
+        </Title>
       </div>
       <Divider />
       <Card title="🎬 Feachures" style={{ width: '100%', marginBottom: 30 }}>
@@ -33,9 +35,11 @@ const HomePage: React.FC = () => {
         <Card.Grid style={gridStyle}>Animation</Card.Grid>
         <Card.Grid style={gridStyle}>RTK Query</Card.Grid>
       </Card>
-      
+
       <Card
-        title='🥎  Packages' bordered={false} style={{ width: '100%', marginBottom: 30 }}
+        title="🥎  Packages"
+        bordered={false}
+        style={{ width: '100%', marginBottom: 30 }}
       >
         <p>Card content</p>
         <p>Card content</p>
@@ -43,7 +47,9 @@ const HomePage: React.FC = () => {
       </Card>
 
       <Card
-        title='⛳ Pages' bordered={false} style={{ width: '100%', marginBottom: 30 }}
+        title="⛳ Pages"
+        bordered={false}
+        style={{ width: '100%', marginBottom: 30 }}
       >
         <p>Card content</p>
         <p>Card content</p>

@@ -10,27 +10,23 @@ const SinglePostPage = () => {
   const {
     data: post,
     isFetching,
-    isError
+    isError,
     // isSuccess
   } = postAPI.useGetSinglePostQuery(postId)
   return (
     <>
-      <Button
-        type='text'
-        onClick={goBack}
-        icon={<ArrowLeftOutlined />}
-      >
+      <Button type="text" onClick={goBack} icon={<ArrowLeftOutlined />}>
         Go back
       </Button>
       <Divider />
       {isFetching && <>Loading...</>}
       {isError && <>Something goes Wrong</>}
-      {post &&
+      {post && (
         <Card>
           <h1>{post.title}</h1>
           <p>{post.body}</p>
         </Card>
-      }
+      )}
       {/* <Link to={`/editPost/${post.id}`} className='button'>
         Edit Post
       </Link> */}
