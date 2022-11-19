@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { postAPI } from '../store/api/postAPI'
 import PostItem from './PostItem'
 import { IPost } from '../models/IPost'
-import { Col, Divider, Row, Pagination } from 'antd'
+import { Col, Divider, Row, Pagination, Button } from 'antd'
 // import type { PaginationProps } from 'antd';
 import SpinnerPostList from './SpinnerPostList'
 import CreatePostItem from './modals/CreatePostItem'
@@ -10,16 +10,10 @@ import CreatePostItem from './modals/CreatePostItem'
 const PostList = () => {
   const [limit, setLimit] = useState(9)
   const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
-  // const [createPost, {}] = postAPI.useCreatePostMutation()
   const [updatePost, {}] = postAPI.useUpdatePostMutation()
   const [deletePost, {}] = postAPI.useDeletePostMutation()
 
   const [isOpenCreateModal, setIsOpenCreateModal] = React.useState(false)
-
-  // const handleCreate = async () => {
-  //   const title = prompt()
-  //   await createPost({title, body: title} as IPost)
-  // }
 
   const handleOpenCreateModal = () => {
     setIsOpenCreateModal(true)
@@ -28,10 +22,6 @@ const PostList = () => {
   const handleCloseCreateModal = () => {
     setIsOpenCreateModal(false)
   }
-
-  // const handleCreate = async () => {
-  //   await createPost({title, body, postImage} as IPost)
-  // }
 
   const handleRemove = (post: IPost) => {
     deletePost(post)
@@ -49,7 +39,7 @@ const PostList = () => {
   return (
     <>
       <div>
-        <button onClick={handleOpenCreateModal}>Add new post</button>
+        <Button onClick={handleOpenCreateModal}>Add new post</Button>
       </div>
       <CreatePostItem
         onOk={handleCloseCreateModal}
