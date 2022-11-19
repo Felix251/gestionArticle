@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { postAPI } from '../store/api/postAPI'
 import PostItem from './PostItem'
 import { IPost } from '../models/IPost'
-import { Col, Divider, Row, Pagination, Button } from 'antd'
+import { Col, Divider, Row, Pagination, Button, FloatButton } from 'antd'
 // import type { PaginationProps } from 'antd';
 import SpinnerPostList from './SpinnerPostList'
 import CreatePostItem from './modals/CreatePostItem'
+import { FileAddOutlined } from '@ant-design/icons'
 
 const PostList = () => {
   const [limit, setLimit] = useState(9)
@@ -38,9 +39,15 @@ const PostList = () => {
 
   return (
     <>
-      <div>
+      {/* <div>
         <Button onClick={handleOpenCreateModal}>Add new post</Button>
-      </div>
+      </div> */}
+      <FloatButton
+        tooltip={<div>Add new post</div>}
+        onClick={handleOpenCreateModal}
+        type="primary"
+        icon={<FileAddOutlined />}
+      />
       <CreatePostItem
         onOk={handleCloseCreateModal}
         open={isOpenCreateModal}
