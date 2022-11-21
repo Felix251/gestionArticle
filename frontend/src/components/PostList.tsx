@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { postAPI } from '../store/api/postAPI'
 import PostItem from './PostItem'
 import { IPost } from '../models/IPost'
-import { Col, Divider, Row, Pagination, Button, FloatButton } from 'antd'
+import { Col, Divider, Row, Pagination, FloatButton } from 'antd'
 // import type { PaginationProps } from 'antd';
 import SpinnerPostList from './SpinnerPostList'
 import CreatePostItem from './modals/CreatePostItem'
 import { FileAddOutlined } from '@ant-design/icons'
 
 const PostList = () => {
-  const [limit, setLimit] = useState(9)
+  const [limit, setLimit] = React.useState<number>(9)
   const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
   const [updatePost, {}] = postAPI.useUpdatePostMutation()
   const [deletePost, {}] = postAPI.useDeletePostMutation()
 
-  const [isOpenCreateModal, setIsOpenCreateModal] = React.useState(false)
+  const [isOpenCreateModal, setIsOpenCreateModal] =
+    React.useState<boolean>(false)
 
   const handleOpenCreateModal = () => {
     setIsOpenCreateModal(true)
@@ -39,9 +40,6 @@ const PostList = () => {
 
   return (
     <>
-      {/* <div>
-        <Button onClick={handleOpenCreateModal}>Add new post</Button>
-      </div> */}
       <FloatButton
         tooltip={<div>Add new post</div>}
         onClick={handleOpenCreateModal}

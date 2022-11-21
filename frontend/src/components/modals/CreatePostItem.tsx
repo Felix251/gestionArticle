@@ -21,16 +21,18 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
 
   const [createPost, {}] = postAPI.useCreatePostMutation()
 
-  const [postItemTitle, setPostItemTitle] = React.useState('')
-  const [postItemBody, setPostItemBody] = React.useState('')
-  const [postItemImage, setPostItemImage] = React.useState('')
+  const [postItem, setPostItem] = React.useState({
+    title: '',
+    body: '',
+    postImage: '',
+  } as IPost)
 
   const onFinish = async (values: any) => {
     try {
       await createPost({
-        title: postItemTitle,
-        body: postItemBody,
-        postImage: postItemImage,
+        title: postItem.title,
+        body: postItem.body,
+        postImage: postItem.postImage,
       } as IPost)
       form.resetFields()
       onCancel()
@@ -57,8 +59,10 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) => setPostItemTitle(e.target.value)}
-              value={postItemTitle}
+              onChange={(e) =>
+                setPostItem({ ...postItem, title: e.target.value })
+              }
+              value={postItem.title}
             />
           </Form.Item>
 
@@ -68,8 +72,10 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) => setPostItemImage(e.target.value)}
-              value={postItemImage}
+              onChange={(e) =>
+                setPostItem({ ...postItem, postImage: e.target.value })
+              }
+              value={postItem.postImage}
             />
           </Form.Item>
 
@@ -81,8 +87,10 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             <Input.TextArea
               allowClear
               showCount
-              onChange={(e) => setPostItemBody(e.target.value)}
-              value={postItemBody}
+              onChange={(e) =>
+                setPostItem({ ...postItem, body: e.target.value })
+              }
+              value={postItem.body}
             />
           </Form.Item>
         </Form>

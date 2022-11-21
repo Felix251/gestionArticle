@@ -1,6 +1,6 @@
 import React from 'react'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import { Avatar, Button, Card } from 'antd'
+import { Avatar, Card } from 'antd'
 import { IPost } from '../models/IPost'
 import { Link } from 'react-router-dom'
 import UpdatePostItem from './modals/UpdatePostItem'
