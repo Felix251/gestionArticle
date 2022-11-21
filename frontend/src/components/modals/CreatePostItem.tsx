@@ -59,7 +59,7 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) =>
+              onChange={(e: { target: { value: string } }) =>
                 setPostItem({ ...postItem, title: e.target.value })
               }
               value={postItem.title}
@@ -72,7 +72,7 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) =>
+              onChange={(e: { target: { value: string } }) =>
                 setPostItem({ ...postItem, postImage: e.target.value })
               }
               value={postItem.postImage}
@@ -87,7 +87,7 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
             <Input.TextArea
               allowClear
               showCount
-              onChange={(e) =>
+              onChange={(e: { target: { value: any } }) =>
                 setPostItem({ ...postItem, body: e.target.value })
               }
               value={postItem.body}
