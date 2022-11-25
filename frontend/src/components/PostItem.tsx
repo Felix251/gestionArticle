@@ -11,18 +11,11 @@ const { Meta } = Card
 export interface PostItemProps {
   post: IPost
   remove: (post: IPost) => void
-  update: (post: IPost) => void
 }
 
-const PostItem = ({ post, remove, update }: PostItemProps) => {
+const PostItem = ({ post, remove }: PostItemProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = useState(false)
-
-  // const handleOk = () => {
-  //   // update({ ...post, title, body, postImage })
-  //   update(post)
-  //   setIsModalOpen(false)
-  // }
 
   const handleCancelUpdate = () => {
     setIsModalOpen(false)
@@ -71,7 +64,6 @@ const PostItem = ({ post, remove, update }: PostItemProps) => {
         <Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
           title={post.title}
-          // {post.id}
           description={post.body.substring(0, 100)}
         />
         <div className="readMoreWrap">

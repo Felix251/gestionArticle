@@ -3,7 +3,6 @@ import React from 'react'
 import { IPost } from '../../models/IPost'
 import { postAPI } from '../../store/api/postAPI'
 import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 interface CreatePostItemProps {
   open: boolean

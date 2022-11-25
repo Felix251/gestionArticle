@@ -3,7 +3,6 @@ import React from 'react'
 import { IPost } from '../../models/IPost'
 import { postAPI } from '../../store/api/postAPI'
 import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 interface UpdatePostItemProps {
   postItem: IPost
@@ -42,7 +41,14 @@ const UpdatePostItem = ({
       postImage: postItemUpdate.postImage,
     })
     onCancel()
-    toast('The article: ' + `${postItemUpdate.title}` + ' was updated')
+    toast.success(
+      'The article: ' + `${postItemUpdate.title}` + ' was updated',
+      {
+        autoClose: 3000,
+        closeOnClick: true,
+        pauseOnHover: false,
+      }
+    )
   }
 
   return (

@@ -12,7 +12,6 @@ const PostList = () => {
   const [limit, setLimit] = React.useState<number>(9)
   // const [page, setPage] = React.useState(1)
   const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
-  const [updatePost, {}] = postAPI.useUpdatePostMutation()
   const [deletePost, {}] = postAPI.useDeletePostMutation()
 
   const [isOpenCreateModal, setIsOpenCreateModal] =
@@ -28,10 +27,6 @@ const PostList = () => {
 
   const handleRemove = (post: IPost) => {
     deletePost(post)
-  }
-
-  const handlePostUpdate = (post: IPost) => {
-    updatePost(post)
   }
 
   // console.log('All pages:', page)
@@ -61,11 +56,7 @@ const PostList = () => {
         {posts &&
           posts.map((post) => (
             <Col className="gutter-row" span={8} key={post.id}>
-              <PostItem
-                remove={handleRemove}
-                update={handlePostUpdate}
-                post={post}
-              />
+              <PostItem remove={handleRemove} post={post} />
             </Col>
           ))}
       </Row>
