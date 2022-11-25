@@ -1,10 +1,9 @@
-import React from 'react'
+import { useState } from 'react'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Avatar, Card } from 'antd'
 import { IPost } from '../models/IPost'
 import { Link } from 'react-router-dom'
 import UpdatePostItem from './modals/UpdatePostItem'
-import { postAPI } from '../store/api/postAPI'
 import ConfirmRemovePostItem from './modals/ConfirmRemovePostItem'
 
 const { Meta } = Card
@@ -16,20 +15,16 @@ export interface PostItemProps {
 }
 
 const PostItem = ({ post, remove, update }: PostItemProps) => {
-  const [updatePost, {}] = postAPI.useUpdatePostMutation()
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = React.useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = useState(false)
 
-  // const showModal = (e: React.MouseEvent) => {
-  //   setIsModalOpen(true);
-  // };
+  // const handleOk = () => {
+  //   // update({ ...post, title, body, postImage })
+  //   update(post)
+  //   setIsModalOpen(false)
+  // }
 
-  const handleOk = () => {
-    // update({...post, title})
-    setIsModalOpen(false)
-  }
-
-  const handleCancel = () => {
+  const handleCancelUpdate = () => {
     setIsModalOpen(false)
   }
 
@@ -41,14 +36,12 @@ const PostItem = ({ post, remove, update }: PostItemProps) => {
     setIsConfirmRemoveOpen(false)
   }
 
-  const handleRemove = (e: React.MouseEvent) => {
+  const handleRemove = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     remove(post)
   }
 
-  const handlePostUpdate = () => {
-    // const title = prompt() || ""
-    // update({...post, title, body, postImage})
+  const handlePostUpdateOpen = () => {
     setIsModalOpen(true)
   }
 
@@ -57,8 +50,7 @@ const PostItem = ({ post, remove, update }: PostItemProps) => {
       <UpdatePostItem
         title={`Update Post: ${post.title}`}
         open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        onCancel={handleCancelUpdate}
         postItem={post}
       />
       <ConfirmRemovePostItem
@@ -72,7 +64,7 @@ const PostItem = ({ post, remove, update }: PostItemProps) => {
         style={{ width: '100%', marginBottom: 20 }}
         cover={<img alt="example" src={post.postImage} />}
         actions={[
-          <EditOutlined key="edit" onClick={handlePostUpdate} />,
+          <EditOutlined key="edit" onClick={handlePostUpdateOpen} />,
           <DeleteOutlined key="delete" onClick={handleOpenRemoveModal} />,
         ]}
       >

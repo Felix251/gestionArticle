@@ -10,6 +10,7 @@ import { FileAddOutlined } from '@ant-design/icons'
 
 const PostList = () => {
   const [limit, setLimit] = React.useState<number>(9)
+  // const [page, setPage] = React.useState(1)
   const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
   const [updatePost, {}] = postAPI.useUpdatePostMutation()
   const [deletePost, {}] = postAPI.useDeletePostMutation()
@@ -32,6 +33,8 @@ const PostList = () => {
   const handlePostUpdate = (post: IPost) => {
     updatePost(post)
   }
+
+  // console.log('All pages:', page)
 
   // const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
   //   console.log(current, pageSize);

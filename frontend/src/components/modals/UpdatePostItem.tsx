@@ -1,15 +1,14 @@
-import { Modal, Button, Form, Input } from 'antd'
+import { Modal, Form, Input } from 'antd'
 import React from 'react'
 import { IPost } from '../../models/IPost'
 import { postAPI } from '../../store/api/postAPI'
-// import { PostItemProps } from '../PostItem';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 interface UpdatePostItemProps {
-  // update: PostItemProps;
   postItem: IPost
   open: boolean
   title: string
-  onOk: () => void
   onCancel: () => void
 }
 
@@ -17,14 +16,10 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 }
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-}
 
 const UpdatePostItem = ({
   open,
   title,
-  onOk,
   onCancel,
   postItem,
 }: UpdatePostItemProps) => {
@@ -32,76 +27,87 @@ const UpdatePostItem = ({
   const [form] = Form.useForm()
 
   const [postItemUpdate, setPostItemUpdatet] = React.useState<IPost>({
-    title: '',
-    postImage: '',
-    body: '',
+    id: postItem.id,
+    title: postItem.title,
+    postImage: postItem.postImage,
+    body: postItem.body,
   } as IPost)
 
-  const onFinish = (values: any) => {
-    console.log(values)
-    // props.submit({...event, author: user.username})
+  const onFinish = () => {
     updatePost({
       ...postItemUpdate,
-      id: postItem.id,
-      title: postItem.title,
-      body: postItem.body,
-      postImage: postItem.postImage,
+      id: postItemUpdate.id,
+      title: postItemUpdate.title,
+      body: postItemUpdate.body,
+      postImage: postItemUpdate.postImage,
     })
+    onCancel()
+    toast('The article: ' + `${postItemUpdate.title}` + ' was updated')
   }
 
   return (
-    <Modal open={open} title={title} onOk={onOk} onCancel={onCancel}>
-      <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
-        <Form.Item name="title" label="Post Title" rules={[{ required: true }]}>
-          <Input
-            onChange={(e) =>
-              setPostItemUpdatet({ ...postItemUpdate, title: e.target.value })
-            }
-            value={postItemUpdate.title}
-            defaultValue={postItem.title}
-          />
-        </Form.Item>
-
-        <Form.Item
-          name="postImage"
-          label="Post Image"
-          rules={[{ required: true }]}
+    <>
+      <ToastContainer />
+      <Modal
+        open={open}
+        title={title}
+        onOk={onFinish}
+        onCancel={onCancel}
+        okText="Update"
+      >
+        <Form
+          {...layout}
+          form={form}
+          name="control-hooks"
+          fields={[
+            { name: ['title'], value: postItemUpdate.title },
+            { name: ['postImage'], value: postItemUpdate.postImage },
+            { name: ['body'], value: postItemUpdate.body },
+          ]}
         >
-          <Input
-            onChange={(e) =>
-              setPostItemUpdatet({
-                ...postItemUpdate,
-                postImage: e.target.value,
-              })
-            }
-            value={postItemUpdate.postImage}
-            defaultValue={postItem.postImage}
-          />
-        </Form.Item>
+          <Form.Item
+            name="title"
+            label="Post Title"
+            rules={[{ required: true }]}
+          >
+            <Input
+              onChange={(e) =>
+                setPostItemUpdatet({ ...postItemUpdate, title: e.target.value })
+              }
+            />
+          </Form.Item>
 
-        <Form.Item
-          name="body"
-          label="Post Content"
-          rules={[{ required: true }]}
-        >
-          <Input.TextArea
-            allowClear
-            showCount
-            onChange={(e) =>
-              setPostItemUpdatet({ ...postItemUpdate, body: e.target.value })
-            }
-            value={postItemUpdate.body}
-            defaultValue={postItem.body}
-          />
-        </Form.Item>
+          <Form.Item
+            name="postImage"
+            label="Post Image"
+            rules={[{ required: true }]}
+          >
+            <Input
+              onChange={(e) =>
+                setPostItemUpdatet({
+                  ...postItemUpdate,
+                  postImage: e.target.value,
+                })
+              }
+            />
+          </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    </Modal>
+          <Form.Item
+            name="body"
+            label="Post Content"
+            rules={[{ required: true }]}
+          >
+            <Input.TextArea
+              allowClear
+              showCount
+              onChange={(e) =>
+                setPostItemUpdatet({ ...postItemUpdate, body: e.target.value })
+              }
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
+    </>
   )
 }
 
