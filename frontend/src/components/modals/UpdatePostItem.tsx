@@ -77,7 +77,7 @@ const UpdatePostItem = ({
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) =>
+              onChange={(e: any) =>
                 setPostItemUpdatet({ ...postItemUpdate, title: e.target.value })
               }
             />
@@ -89,7 +89,7 @@ const UpdatePostItem = ({
             rules={[{ required: true }]}
           >
             <Input
-              onChange={(e) =>
+              onChange={(e: any) =>
                 setPostItemUpdatet({
                   ...postItemUpdate,
                   postImage: e.target.value,
@@ -106,7 +106,7 @@ const UpdatePostItem = ({
             <Input.TextArea
               allowClear
               showCount
-              onChange={(e) =>
+              onChange={(e: any) =>
                 setPostItemUpdatet({ ...postItemUpdate, body: e.target.value })
               }
             />
