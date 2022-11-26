@@ -1,8 +1,16 @@
-import { Layout, Menu, Row, Col } from 'antd'
+import { Layout, Menu, Row, Col, Badge } from 'antd'
 import { NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo'
+import type { MenuProps } from 'antd'
 
 const { Header } = Layout
+
+const items: MenuProps['items'] = [
+  { label: <NavLink to="/">Home</NavLink>, key: '/' },
+  { label: <NavLink to="/articles">Articles</NavLink>, key: '/articles' },
+  { label: <NavLink to="/about">About Us</NavLink>, key: '/about' },
+  { label: <NavLink to="/contact-us">Contact Us</NavLink>, key: '/contact-us' },
+]
 
 const HeaderSite = () => {
   const location = useLocation()
@@ -22,20 +30,8 @@ const HeaderSite = () => {
             mode="horizontal"
             defaultSelectedKeys={['/']}
             selectedKeys={[location.pathname]}
-          >
-            <Menu.Item key="/">
-              <NavLink to="/">Home</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/articles">
-              <NavLink to="/articles">Articles</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/about">
-              <NavLink to="/about">About Us</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/contact-us">
-              <NavLink to="/contact-us">Contact Us</NavLink>
-            </Menu.Item>
-          </Menu>
+            items={items}
+          />
         </Col>
       </Row>
     </Header>
