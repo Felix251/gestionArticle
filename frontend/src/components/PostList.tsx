@@ -10,7 +10,7 @@ import { FileAddOutlined } from '@ant-design/icons'
 
 const PostList = () => {
   const [limit, setLimit] = React.useState<number>(9)
-  // const [page, setPage] = React.useState(1)
+  // const [page, setPage] = React.useState<number>(1)
   const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
   const [deletePost, {}] = postAPI.useDeletePostMutation()
 
@@ -49,16 +49,16 @@ const PostList = () => {
         open={isOpenCreateModal}
         onCancel={handleCloseCreateModal}
       />
+      {/* <div>{`${posts?.total || 'NA'}`}</div> */}
       <Divider orientation="center">Articles</Divider>
       {isLoading && <SpinnerPostList />}
       {error && <h1>Something wrong...</h1>}
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        {posts &&
-          posts.map((post) => (
-            <Col className="gutter-row" span={8} key={post.id}>
-              <PostItem remove={handleRemove} post={post} />
-            </Col>
-          ))}
+        {posts?.map((post) => (
+          <Col className="gutter-row" span={8} key={post.id}>
+            <PostItem remove={handleRemove} post={post} />
+          </Col>
+        ))}
       </Row>
       <Divider />
       <Pagination
