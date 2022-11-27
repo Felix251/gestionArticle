@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs } from 'antd'
-import FavoritePosts from './components/FavoritePosts'
+import FavoritePosts from '../../components/FavoritePosts'
 
 interface ProfilePageProps {}
 

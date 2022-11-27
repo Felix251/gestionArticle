@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import { Avatar, Card } from 'antd'
+import { Avatar, Button, Card } from 'antd'
 import { IPost } from '../models/IPost'
 import { Link } from 'react-router-dom'
 import UpdatePostItem from './modals/UpdatePostItem'
 import ConfirmRemovePostItem from './modals/ConfirmRemovePostItem'
+import { useAppSelector } from '../hooks/redux'
+import { useActions } from '../hooks/useActions'
+import { StarFilled, StarOutlined } from '@ant-design/icons'
 
 const { Meta } = Card
 
@@ -16,6 +19,10 @@ export interface PostItemProps {
 const PostItem = ({ post, remove }: PostItemProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = useState(false)
+
+  const { addFavorite, removeFavorite } = useActions()
+  const { favorites } = useAppSelector((state) => state.favoritePosts)
+  const [isFav, setIsFav] = useState(favorites.includes(post.title))
 
   const handleCancelUpdate = () => {
     setIsModalOpen(false)
@@ -36,6 +43,19 @@ const PostItem = ({ post, remove }: PostItemProps) => {
 
   const handlePostUpdateOpen = () => {
     setIsModalOpen(true)
+  }
+
+  // Favorites
+  const addToFavourite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    addFavorite(post.title)
+    setIsFav(true)
+  }
+
+  const removeFromFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    removeFavorite(post.title)
+    setIsFav(false)
   }
 
   return (
@@ -68,6 +88,24 @@ const PostItem = ({ post, remove }: PostItemProps) => {
         />
         <div className="readMoreWrap">
           <Link to={`/articles/${post.id}`}>Read more...</Link>
+        </div>
+        <div className="favoriteIconWrap">
+          {!isFav && (
+            <Button
+              type="text"
+              shape="circle"
+              icon={<StarOutlined />}
+              onClick={addToFavourite}
+            />
+          )}
+          {isFav && (
+            <Button
+              type="text"
+              shape="circle"
+              icon={<StarFilled style={{ color: '#ffe11b' }} />}
+              onClick={removeFromFavorite}
+            />
+          )}
         </div>
       </Card>
     </>

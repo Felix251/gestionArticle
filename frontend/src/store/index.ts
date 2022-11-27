@@ -6,7 +6,7 @@ export const store = configureStore({
   reducer: {
     // auth: authReducer
     [postAPI.reducerPath]: postAPI.reducer,
-    favoritePost: favoritePostsReducer,
+    favoritePosts: favoritePostsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({}).concat([postAPI.middleware]),

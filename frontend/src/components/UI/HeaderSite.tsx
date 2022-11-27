@@ -1,7 +1,10 @@
-import { Layout, Menu, Row, Col, Badge } from 'antd'
+import React from 'react'
+import { Layout, Menu, Row, Col, Popover, Button, Space } from 'antd'
 import { NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo'
 import type { MenuProps } from 'antd'
+import { ReadOutlined } from '@ant-design/icons'
+import FavoritePosts from '../FavoritePosts'
 
 const { Header } = Layout
 
@@ -12,7 +15,7 @@ const items: MenuProps['items'] = [
   { label: <NavLink to="/contact-us">Contact Us</NavLink>, key: '/contact-us' },
 ]
 
-const HeaderSite = () => {
+const HeaderSite: React.FC = () => {
   const location = useLocation()
   return (
     <Header
@@ -24,14 +27,24 @@ const HeaderSite = () => {
           <Logo />
         </Col>
         <Col span={8} offset={8}>
-          <Menu
-            style={{ border: 0, background: 'transparent' }}
-            theme="light"
-            mode="horizontal"
-            defaultSelectedKeys={['/']}
-            selectedKeys={[location.pathname]}
-            items={items}
-          />
+          <Space>
+            <Menu
+              style={{ border: 0, background: 'transparent' }}
+              theme="light"
+              mode="horizontal"
+              defaultSelectedKeys={['/']}
+              selectedKeys={[location.pathname]}
+              items={items}
+            />
+            <Popover
+              placement="bottomRight"
+              title="Favorite posts"
+              content={<FavoritePosts />}
+              trigger="click"
+            >
+              <Button type="dashed" shape="circle" icon={<ReadOutlined />} />
+            </Popover>
+          </Space>
         </Col>
       </Row>
     </Header>
