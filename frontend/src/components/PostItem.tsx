@@ -32,7 +32,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
     setIsConfirmRemoveOpen(true)
   }
 
-  const handlCloseRemoveModal = () => {
+  const handleCloseRemoveModal = () => {
     setIsConfirmRemoveOpen(false)
   }
 
@@ -46,7 +46,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
   }
 
   // Favorites
-  const addToFavourite = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const addToFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     addFavorite(post.title)
     setIsFav(true)
@@ -70,7 +70,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
         onOk={handleRemove}
         open={isConfirmRemoveOpen}
         title="Please confirm Remove"
-        onCancel={handlCloseRemoveModal}
+        onCancel={handleCloseRemoveModal}
         contentRemove={post.title}
       />
       <Card
@@ -95,7 +95,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
               type="text"
               shape="circle"
               icon={<StarOutlined />}
-              onClick={addToFavourite}
+              onClick={addToFavorite}
             />
           )}
           {isFav && (
