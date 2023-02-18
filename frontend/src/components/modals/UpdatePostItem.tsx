@@ -25,7 +25,7 @@ const UpdatePostItem = ({
   const [updatePost, {}] = postAPI.useUpdatePostMutation()
   const [form] = Form.useForm()
 
-  const [postItemUpdate, setPostItemUpdatet] = React.useState<IPost>({
+  const [postItemUpdate, setPostItemUpdate] = React.useState<IPost>({
     id: postItem.id,
     title: postItem.title,
     postImage: postItem.postImage,
@@ -78,7 +78,7 @@ const UpdatePostItem = ({
           >
             <Input
               onChange={(e: any) =>
-                setPostItemUpdatet({ ...postItemUpdate, title: e.target.value })
+                setPostItemUpdate({ ...postItemUpdate, title: e.target.value })
               }
             />
           </Form.Item>
@@ -90,7 +90,7 @@ const UpdatePostItem = ({
           >
             <Input
               onChange={(e: any) =>
-                setPostItemUpdatet({
+                setPostItemUpdate({
                   ...postItemUpdate,
                   postImage: e.target.value,
                 })
@@ -107,7 +107,7 @@ const UpdatePostItem = ({
               allowClear
               showCount
               onChange={(e: any) =>
-                setPostItemUpdatet({ ...postItemUpdate, body: e.target.value })
+                setPostItemUpdate({ ...postItemUpdate, body: e.target.value })
               }
             />
           </Form.Item>
