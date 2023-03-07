@@ -24,7 +24,9 @@ const HeaderSite: React.FC = () => {
     >
       <Row>
         <Col span={8}>
-          <Logo />
+          <Logo logoColor="#333" logoSize={20}>
+            Logo
+          </Logo>
         </Col>
         <Col span={8} offset={8}>
           <Space>
