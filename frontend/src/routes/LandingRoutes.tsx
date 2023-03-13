@@ -3,10 +3,12 @@ import AboutPage from "../pages/AboutPage";
 import ContactUsPage from "../pages/ContactUsPage";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
+import ErrorRouterElement from "./ErrorRouterElement";
 
 const LandingRoutes = {
   path: "/",
   element: <BlankLayout />,
+  errorElement: <ErrorRouterElement />,
   children: [
     {
       element: <HomePage />,
