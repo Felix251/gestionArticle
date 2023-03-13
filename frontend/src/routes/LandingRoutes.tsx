@@ -1,11 +1,11 @@
-import BlankLayout from '../layouts/LandingLayout'
-import AboutPage from '../pages/AboutPage'
-import ContactUsPage from '../pages/ContactUsPage'
-import HomePage from '../pages/HomePage'
-import ProfilePage from '../pages/ProfilePage'
+import BlankLayout from "../layouts/LandingLayout";
+import AboutPage from "../pages/AboutPage";
+import ContactUsPage from "../pages/ContactUsPage";
+import HomePage from "../pages/HomePage";
+import ProfilePage from "../pages/ProfilePage";
 
 const LandingRoutes = {
-  path: '/',
+  path: "/",
   element: <BlankLayout />,
   children: [
     {
@@ -13,18 +13,18 @@ const LandingRoutes = {
       index: true,
     },
     {
-      path: '/about',
+      path: "/about",
       element: <AboutPage />,
     },
     {
-      path: '/contact-us',
+      path: "/contact-us",
       element: <ContactUsPage />,
     },
     {
-      path: '/profile',
+      path: "/profile",
       element: <ProfilePage />,
     },
   ],
-}
+};
 
-export default LandingRoutes
+export default LandingRoutes;

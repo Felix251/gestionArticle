@@ -1,6 +1,6 @@
-import React from 'react'
-import { Tabs } from 'antd'
-import FavoritePosts from '../../components/FavoritePosts'
+import React from "react";
+import { Tabs } from "antd";
+import FavoritePosts from "../../components/FavoritePosts";
 
 interface ProfilePageProps {}
 
@@ -19,7 +19,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
         </Tabs.TabPane>
       </Tabs>
     </>
-  )
-}
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;

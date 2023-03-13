@@ -1,4 +1,4 @@
-import Seo from '../../components/SEO'
+import Seo from "../../components/SEO";
 
 const ContactUsPage = () => {
   return (
@@ -10,7 +10,7 @@ const ContactUsPage = () => {
       />
       <div>ContactUsPage</div>
     </>
-  )
-}
+  );
+};
 
-export default ContactUsPage
+export default ContactUsPage;

@@ -1,30 +1,30 @@
-import { Modal, Form, Input } from 'antd'
-import React from 'react'
-import { IPost } from '../../models/IPost'
-import { postAPI } from '../../store/api/postAPI'
-import { ToastContainer, toast } from 'react-toastify'
+import { Modal, Form, Input } from "antd";
+import React from "react";
+import { IPost } from "../../models/IPost";
+import { postAPI } from "../../store/api/postAPI";
+import { ToastContainer, toast } from "react-toastify";
 
 interface CreatePostItemProps {
-  open: boolean
-  onOk: () => void
-  onCancel: () => void
+  open: boolean;
+  onOk: () => void;
+  onCancel: () => void;
 }
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
-}
+};
 
 const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
 
-  const [createPost, {}] = postAPI.useCreatePostMutation()
+  const [createPost, {}] = postAPI.useCreatePostMutation();
 
   const [postItem, setPostItem] = React.useState({
-    title: '',
-    body: '',
-    postImage: '',
-  } as IPost)
+    title: "",
+    body: "",
+    postImage: "",
+  } as IPost);
 
   const onFinish = async (values: any) => {
     try {
@@ -32,14 +32,14 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
         title: postItem.title,
         body: postItem.body,
         postImage: postItem.postImage,
-      } as IPost)
-      form.resetFields()
-      onCancel()
-      toast('A new article was created')
+      } as IPost);
+      form.resetFields();
+      onCancel();
+      toast("A new article was created");
     } catch (err) {
-      console.error('Failed to save the post: ', err)
+      console.error("Failed to save the post: ", err);
     }
-  }
+  };
 
   return (
     <>
@@ -95,7 +95,7 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
         </Form>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default CreatePostItem
+export default CreatePostItem;

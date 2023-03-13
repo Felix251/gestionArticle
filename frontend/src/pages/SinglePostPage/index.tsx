@@ -1,18 +1,18 @@
-import { Button, Divider, Card } from 'antd'
-import { useParams, useNavigate } from 'react-router-dom'
-import { postAPI } from '../../store/api/postAPI'
-import { ArrowLeftOutlined } from '@ant-design/icons'
+import { Button, Divider, Card } from "antd";
+import { useParams, useNavigate } from "react-router-dom";
+import { postAPI } from "../../store/api/postAPI";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const SinglePostPage = () => {
-  const { postId } = useParams()
-  const goBack = () => navigate(-1)
-  const navigate = useNavigate()
+  const { postId } = useParams();
+  const goBack = () => navigate(-1);
+  const navigate = useNavigate();
   const {
     data: post,
     isFetching,
     isError,
     // isSuccess
-  } = postAPI.useGetSinglePostQuery(postId)
+  } = postAPI.useGetSinglePostQuery(postId);
   return (
     <>
       <Button type="text" onClick={goBack} icon={<ArrowLeftOutlined />}>
@@ -31,7 +31,7 @@ const SinglePostPage = () => {
         Edit Post
       </Link> */}
     </>
-  )
-}
+  );
+};
 
-export default SinglePostPage
+export default SinglePostPage;

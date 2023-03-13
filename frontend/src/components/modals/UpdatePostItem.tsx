@@ -1,20 +1,20 @@
-import { Modal, Form, Input } from 'antd'
-import React from 'react'
-import { IPost } from '../../models/IPost'
-import { postAPI } from '../../store/api/postAPI'
-import { ToastContainer, toast } from 'react-toastify'
+import { Modal, Form, Input } from "antd";
+import React from "react";
+import { IPost } from "../../models/IPost";
+import { postAPI } from "../../store/api/postAPI";
+import { ToastContainer, toast } from "react-toastify";
 
 interface UpdatePostItemProps {
-  postItem: IPost
-  open: boolean
-  title: string
-  onCancel: () => void
+  postItem: IPost;
+  open: boolean;
+  title: string;
+  onCancel: () => void;
 }
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
-}
+};
 
 const UpdatePostItem = ({
   open,
@@ -22,15 +22,15 @@ const UpdatePostItem = ({
   onCancel,
   postItem,
 }: UpdatePostItemProps) => {
-  const [updatePost, {}] = postAPI.useUpdatePostMutation()
-  const [form] = Form.useForm()
+  const [updatePost, {}] = postAPI.useUpdatePostMutation();
+  const [form] = Form.useForm();
 
   const [postItemUpdate, setPostItemUpdate] = React.useState<IPost>({
     id: postItem.id,
     title: postItem.title,
     postImage: postItem.postImage,
     body: postItem.body,
-  } as IPost)
+  } as IPost);
 
   const onFinish = () => {
     updatePost({
@@ -39,17 +39,17 @@ const UpdatePostItem = ({
       title: postItemUpdate.title,
       body: postItemUpdate.body,
       postImage: postItemUpdate.postImage,
-    })
-    onCancel()
+    });
+    onCancel();
     toast.success(
-      'The article: ' + `${postItemUpdate.title}` + ' was updated',
+      "The article: " + `${postItemUpdate.title}` + " was updated",
       {
         autoClose: 3000,
         closeOnClick: true,
         pauseOnHover: false,
       }
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -66,9 +66,9 @@ const UpdatePostItem = ({
           form={form}
           name="control-hooks"
           fields={[
-            { name: ['title'], value: postItemUpdate.title },
-            { name: ['postImage'], value: postItemUpdate.postImage },
-            { name: ['body'], value: postItemUpdate.body },
+            { name: ["title"], value: postItemUpdate.title },
+            { name: ["postImage"], value: postItemUpdate.postImage },
+            { name: ["body"], value: postItemUpdate.body },
           ]}
         >
           <Form.Item
@@ -114,7 +114,7 @@ const UpdatePostItem = ({
         </Form>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default UpdatePostItem
+export default UpdatePostItem;

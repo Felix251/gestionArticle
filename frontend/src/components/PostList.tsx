@@ -1,33 +1,37 @@
-import React from 'react'
-import { postAPI } from '../store/api/postAPI'
-import PostItem from './PostItem'
-import { IPost } from '../models/IPost'
-import { Col, Divider, Row, Pagination, FloatButton } from 'antd'
+import React from "react";
+import { postAPI } from "../store/api/postAPI";
+import PostItem from "./PostItem";
+import { IPost } from "../models/IPost";
+import { Col, Divider, Row, Pagination, FloatButton } from "antd";
 // import type { PaginationProps } from 'antd';
-import SpinnerPostList from './SpinnerPostList'
-import CreatePostItem from './modals/CreatePostItem'
-import { FileAddOutlined } from '@ant-design/icons'
+import SpinnerPostList from "./SpinnerPostList";
+import CreatePostItem from "./modals/CreatePostItem";
+import { FileAddOutlined } from "@ant-design/icons";
 
 const PostList = () => {
-  const [limit, setLimit] = React.useState<number>(9)
+  const [limit, setLimit] = React.useState<number>(9);
   // const [page, setPage] = React.useState<number>(1)
-  const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
-  const [deletePost, {}] = postAPI.useDeletePostMutation()
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = postAPI.useFetchAllPostsQuery(limit);
+  const [deletePost, {}] = postAPI.useDeletePostMutation();
 
   const [isOpenCreateModal, setIsOpenCreateModal] =
-    React.useState<boolean>(false)
+    React.useState<boolean>(false);
 
   const handleOpenCreateModal = () => {
-    setIsOpenCreateModal(true)
-  }
+    setIsOpenCreateModal(true);
+  };
 
   const handleCloseCreateModal = () => {
-    setIsOpenCreateModal(false)
-  }
+    setIsOpenCreateModal(false);
+  };
 
   const handleRemove = (post: IPost) => {
-    deletePost(post)
-  }
+    deletePost(post);
+  };
 
   // console.log('All pages:', page)
 
@@ -68,7 +72,7 @@ const PostList = () => {
         total={100}
       />
     </>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;

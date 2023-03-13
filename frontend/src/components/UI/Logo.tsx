@@ -1,11 +1,11 @@
-import { Typography } from 'antd'
-import { WithChildren } from '../../models/CommonTypes'
+import { Typography } from "antd";
+import { WithChildren } from "../../models/CommonTypes";
 
-const { Title } = Typography
+const { Title } = Typography;
 
 interface LogoProps extends WithChildren {
-  logoSize?: number
-  logoColor?: string
+  logoSize?: number;
+  logoColor?: string;
 }
 
 const Logo = ({ logoSize, logoColor, children }: LogoProps) => {
@@ -15,12 +15,12 @@ const Logo = ({ logoSize, logoColor, children }: LogoProps) => {
       level={4}
       style={{
         fontSize: logoSize ? logoSize : 16,
-        color: logoColor ? logoColor : '#000',
+        color: logoColor ? logoColor : "#000",
       }}
     >
       💎 {children}
     </Title>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

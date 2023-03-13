@@ -1,5 +1,5 @@
-import PostList from '../../components/PostList'
-import Seo from '../../components/SEO'
+import PostList from "../../components/PostList";
+import Seo from "../../components/SEO";
 
 const BlogPage = () => {
   return (
@@ -11,7 +11,7 @@ const BlogPage = () => {
       />
       <PostList />
     </>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;

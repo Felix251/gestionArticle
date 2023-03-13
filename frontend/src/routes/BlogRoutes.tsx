@@ -1,9 +1,9 @@
-import BlogLayout from '../layouts/BlogLayout'
-import BlogPage from '../pages/BlogPage'
-import SinglePostPage from '../pages/SinglePostPage'
+import BlogLayout from "../layouts/BlogLayout";
+import BlogPage from "../pages/BlogPage";
+import SinglePostPage from "../pages/SinglePostPage";
 
 const BlogRoutes = {
-  path: '/articles',
+  path: "/articles",
   element: <BlogLayout />,
   children: [
     {
@@ -11,10 +11,10 @@ const BlogRoutes = {
       index: true,
     },
     {
-      path: '/articles/:postId',
+      path: "/articles/:postId",
       element: <SinglePostPage />,
     },
   ],
-}
+};
 
-export default BlogRoutes
+export default BlogRoutes;

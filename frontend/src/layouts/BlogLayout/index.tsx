@@ -1,9 +1,9 @@
-import { Layout } from 'antd'
-import { Outlet } from 'react-router-dom'
-import FooterSite from '../../components/UI/FooterSite'
-import HeaderSite from '../../components/UI/HeaderSite'
+import { Layout } from "antd";
+import { Outlet } from "react-router-dom";
+import FooterSite from "../../components/UI/FooterSite";
+import HeaderSite from "../../components/UI/HeaderSite";
 
-const { Content } = Layout
+const { Content } = Layout;
 
 export default function BlogLayout() {
   return (
@@ -13,9 +13,9 @@ export default function BlogLayout() {
         <Content
           className="site-layout"
           style={{
-            padding: '0 50px',
-            margin: ' 84px auto 0',
-            width: '100%',
+            padding: "0 50px",
+            margin: " 84px auto 0",
+            width: "100%",
             maxWidth: 1200,
           }}
         >
@@ -24,5 +24,5 @@ export default function BlogLayout() {
         <FooterSite />
       </Layout>
     </>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-import { Modal, Typography } from 'antd'
+import { Modal, Typography } from "antd";
 
-const { Title } = Typography
+const { Title } = Typography;
 
 interface ConfirmRemovePostItemProps {
-  open: boolean
-  title: string
-  onOk: (values: any) => void
-  onCancel: () => void
-  contentRemove: string
+  open: boolean;
+  title: string;
+  onOk: (values: any) => void;
+  onCancel: () => void;
+  contentRemove: string;
 }
 
 const ConfirmRemovePostItem = ({
@@ -21,7 +21,7 @@ const ConfirmRemovePostItem = ({
     <Modal open={open} title={title} onOk={onOk} onCancel={onCancel}>
       <Title level={4}>{contentRemove}</Title>
     </Modal>
-  )
-}
+  );
+};
 
-export default ConfirmRemovePostItem
+export default ConfirmRemovePostItem;

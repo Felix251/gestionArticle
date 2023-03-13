@@ -1,62 +1,62 @@
-import { useState } from 'react'
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import { Avatar, Button, Card } from 'antd'
-import { IPost } from '../models/IPost'
-import { Link } from 'react-router-dom'
-import UpdatePostItem from './modals/UpdatePostItem'
-import ConfirmRemovePostItem from './modals/ConfirmRemovePostItem'
-import { useAppSelector } from '../hooks/redux'
-import { useActions } from '../hooks/useActions'
-import { StarFilled, StarOutlined } from '@ant-design/icons'
+import { useState } from "react";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Avatar, Button, Card } from "antd";
+import { IPost } from "../models/IPost";
+import { Link } from "react-router-dom";
+import UpdatePostItem from "./modals/UpdatePostItem";
+import ConfirmRemovePostItem from "./modals/ConfirmRemovePostItem";
+import { useAppSelector } from "../hooks/redux";
+import { useActions } from "../hooks/useActions";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
 
-const { Meta } = Card
+const { Meta } = Card;
 
 export interface PostItemProps {
-  post: IPost
-  remove: (post: IPost) => void
+  post: IPost;
+  remove: (post: IPost) => void;
 }
 
 const PostItem = ({ post, remove }: PostItemProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConfirmRemoveOpen, setIsConfirmRemoveOpen] = useState(false);
 
-  const { addFavorite, removeFavorite } = useActions()
-  const { favorites } = useAppSelector((state) => state.favoritePosts)
-  const [isFav, setIsFav] = useState(favorites.includes(post.title))
+  const { addFavorite, removeFavorite } = useActions();
+  const { favorites } = useAppSelector((state) => state.favoritePosts);
+  const [isFav, setIsFav] = useState(favorites.includes(post.title));
 
   const handleCancelUpdate = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   const handleOpenRemoveModal = () => {
-    setIsConfirmRemoveOpen(true)
-  }
+    setIsConfirmRemoveOpen(true);
+  };
 
   const handleCloseRemoveModal = () => {
-    setIsConfirmRemoveOpen(false)
-  }
+    setIsConfirmRemoveOpen(false);
+  };
 
   const handleRemove = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation()
-    remove(post)
-  }
+    e.stopPropagation();
+    remove(post);
+  };
 
   const handlePostUpdateOpen = () => {
-    setIsModalOpen(true)
-  }
+    setIsModalOpen(true);
+  };
 
   // Favorites
   const addToFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    addFavorite(post.title)
-    setIsFav(true)
-  }
+    e.preventDefault();
+    addFavorite(post.title);
+    setIsFav(true);
+  };
 
   const removeFromFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    removeFavorite(post.title)
-    setIsFav(false)
-  }
+    e.preventDefault();
+    removeFavorite(post.title);
+    setIsFav(false);
+  };
 
   return (
     <>
@@ -74,7 +74,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
         contentRemove={post.title}
       />
       <Card
-        style={{ width: '100%', marginBottom: 20 }}
+        style={{ width: "100%", marginBottom: 20 }}
         cover={<img alt="example" src={post.postImage} />}
         actions={[
           <EditOutlined key="edit" onClick={handlePostUpdateOpen} />,
@@ -102,14 +102,14 @@ const PostItem = ({ post, remove }: PostItemProps) => {
             <Button
               type="text"
               shape="circle"
-              icon={<StarFilled style={{ color: '#ffe11b' }} />}
+              icon={<StarFilled style={{ color: "#ffe11b" }} />}
               onClick={removeFromFavorite}
             />
           )}
         </div>
       </Card>
     </>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;

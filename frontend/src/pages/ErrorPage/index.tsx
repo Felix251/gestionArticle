@@ -2,24 +2,24 @@ import {
   isRouteErrorResponse,
   useRouteError,
   useNavigate,
-} from 'react-router-dom'
-import { Button, Empty, Typography } from 'antd'
+} from "react-router-dom";
+import { Button, Empty, Typography } from "antd";
 
-const { Title } = Typography
+const { Title } = Typography;
 
 const ErrorPage = () => {
-  const error = useRouteError()
-  const navigate = useNavigate()
-  const goHome = () => navigate('/', { replace: true })
+  const error = useRouteError();
+  const navigate = useNavigate();
+  const goHome = () => navigate("/", { replace: true });
 
   if (isRouteErrorResponse(error)) {
     return (
       <div>
         <h1>{error.status}</h1>
-        <h2>{error.data.message || 'Something goes wrong!'}</h2>
+        <h2>{error.data.message || "Something goes wrong!"}</h2>
         <h3>{error.data.reason}</h3>
       </div>
-    )
+    );
   }
 
   return (
@@ -36,7 +36,7 @@ const ErrorPage = () => {
         </Button>
       </Empty>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

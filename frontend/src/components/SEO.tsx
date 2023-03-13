@@ -1,15 +1,15 @@
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from "react-helmet-async";
 
 interface SeoProps {
-  title: string
-  metaDescription?: string | undefined
-  metaKeywords?: string | undefined
+  title: string;
+  metaDescription?: string | undefined;
+  metaKeywords?: string | undefined;
 }
 
 const Seo = ({ title, metaDescription, metaKeywords }: SeoProps) => {
   return (
     <Helmet>
-      <title>{title ? `${title} | Template` : 'Template'}</title>
+      <title>{title ? `${title} | Template` : "Template"}</title>
       {metaDescription && <meta name="description" content={metaDescription} />}
       {metaDescription && (
         <meta property="og:description" content={metaDescription} />
@@ -17,10 +17,10 @@ const Seo = ({ title, metaDescription, metaKeywords }: SeoProps) => {
       {metaKeywords && <meta name="keywords" content={metaKeywords} />}
       <meta
         property="og:title"
-        content={title ? `${title} | Template` : 'Template'}
+        content={title ? `${title} | Template` : "Template"}
       />
     </Helmet>
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

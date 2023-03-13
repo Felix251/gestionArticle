@@ -1,14 +1,14 @@
-import React from 'react'
-import { Card, Divider, Typography } from 'antd'
-import Seo from '../../components/SEO'
-const { Title } = Typography
+import React from "react";
+import { Card, Divider, Typography } from "antd";
+import Seo from "../../components/SEO";
+const { Title } = Typography;
 
 const gridStyle: React.CSSProperties = {
-  width: '25%',
-  textAlign: 'center',
-  fontWeight: 'bold',
-  color: '#333',
-}
+  width: "25%",
+  textAlign: "center",
+  fontWeight: "bold",
+  color: "#333",
+};
 
 const HomePage: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
         </Title>
       </div>
       <Divider />
-      <Card title="🎬 Feachures" style={{ width: '100%', marginBottom: 30 }}>
+      <Card title="🎬 Feachures" style={{ width: "100%", marginBottom: 30 }}>
         <Card.Grid style={gridStyle}>React V18.2</Card.Grid>
         <Card.Grid style={gridStyle}>TypeScript</Card.Grid>
         <Card.Grid style={gridStyle}>Ant Design</Card.Grid>
@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
       <Card
         title="🥎  Packages"
         bordered={false}
-        style={{ width: '100%', marginBottom: 30 }}
+        style={{ width: "100%", marginBottom: 30 }}
       >
         <p>Card content</p>
         <p>Card content</p>
@@ -49,14 +49,14 @@ const HomePage: React.FC = () => {
       <Card
         title="⛳ Pages"
         bordered={false}
-        style={{ width: '100%', marginBottom: 30 }}
+        style={{ width: "100%", marginBottom: 30 }}
       >
         <p>Card content</p>
         <p>Card content</p>
         <p>Card content</p>
       </Card>
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

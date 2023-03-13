@@ -1,4 +1,4 @@
-import Seo from '../../components/SEO'
+import Seo from "../../components/SEO";
 
 const AboutPage = () => {
   return (
@@ -10,7 +10,7 @@ const AboutPage = () => {
       />
       <div>AboutPage</div>
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

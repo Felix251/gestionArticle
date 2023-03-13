@@ -1,7 +1,7 @@
-import { Layout, Typography, Divider } from 'antd'
+import { Layout, Typography, Divider } from "antd";
 
-const { Footer } = Layout
-const { Text } = Typography
+const { Footer } = Layout;
+const { Text } = Typography;
 
 const FooterSite = () => {
   return (
@@ -9,7 +9,7 @@ const FooterSite = () => {
       <Divider />
       <Text strong>React/TS Blog Template</Text>
     </Footer>
-  )
-}
+  );
+};
 
-export default FooterSite
+export default FooterSite;

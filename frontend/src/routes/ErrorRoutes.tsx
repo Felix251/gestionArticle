@@ -1,8 +1,8 @@
-import ErrorPage from '../pages/ErrorPage'
+import ErrorPage from "../pages/ErrorPage";
 
 const ErrorRoutes = {
-  path: '*',
+  path: "*",
   element: <ErrorPage />,
-}
+};
 
-export default ErrorRoutes
+export default ErrorRoutes;

@@ -1,8 +1,8 @@
-import { List, Typography } from 'antd'
-import { useAppSelector } from '../hooks/redux'
+import { List, Typography } from "antd";
+import { useAppSelector } from "../hooks/redux";
 
 const FavoritePosts = () => {
-  const { favorites } = useAppSelector((state) => state.favoritePosts)
+  const { favorites } = useAppSelector((state) => state.favoritePosts);
 
   return (
     <List
@@ -15,7 +15,7 @@ const FavoritePosts = () => {
         </List.Item>
       )}
     />
-  )
-}
+  );
+};
 
-export default FavoritePosts
+export default FavoritePosts;
