@@ -1,7 +1,9 @@
 export interface BaseUser {
-  login: string;
-  password: string;
-  tokenGenerate: string;
+  name: string;
+  address: string;
+  age: string;
+  profession: string;
+  interestRate: string;
 }
 export interface User extends BaseUser {
   id: number;
