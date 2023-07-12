@@ -27,22 +27,24 @@ const UpdatePostItem = ({
 
   const [postItemUpdate, setPostItemUpdate] = React.useState<IPost>({
     id: postItem.id,
-    title: postItem.title,
-    postImage: postItem.postImage,
-    body: postItem.body,
+    titre: postItem.titre,
+    content: postItem.content,
+    image: postItem.image,
+    categorieName: postItem.categorieName,
   } as IPost);
 
   const onFinish = () => {
     updatePost({
       ...postItemUpdate,
       id: postItemUpdate.id,
-      title: postItemUpdate.title,
-      body: postItemUpdate.body,
-      postImage: postItemUpdate.postImage,
+      titre: postItemUpdate.titre,
+      content: postItemUpdate.content,
+      image: postItemUpdate.image,
+      categorieName: postItemUpdate.categorieName,
     });
     onCancel();
     toast.success(
-      "The article: " + `${postItemUpdate.title}` + " was updated",
+      "The article: " + `${postItemUpdate.titre}` + " was updated",
       {
         autoClose: 3000,
         closeOnClick: true,
@@ -66,48 +68,52 @@ const UpdatePostItem = ({
           form={form}
           name="control-hooks"
           fields={[
-            { name: ["title"], value: postItemUpdate.title },
-            { name: ["postImage"], value: postItemUpdate.postImage },
-            { name: ["body"], value: postItemUpdate.body },
+            { name: ["titre"], value: postItemUpdate.titre },
+            { name: ["image"], value: postItemUpdate.image },
+            { name: ["content"], value: postItemUpdate.content },
+            { name: ["categorieName"], value: postItemUpdate.categorieName },
           ]}
         >
           <Form.Item
-            name="title"
-            label="Post Title"
+            name="titre"
+            label="Article Title"
             rules={[{ required: true }]}
           >
             <Input
               onChange={(e: any) =>
-                setPostItemUpdate({ ...postItemUpdate, title: e.target.value })
+                setPostItemUpdate({ ...postItemUpdate, titre: e.target.value })
               }
             />
           </Form.Item>
 
           <Form.Item
-            name="postImage"
-            label="Post Image"
+            name="image"
+            label="Article Image"
             rules={[{ required: true }]}
           >
             <Input
               onChange={(e: any) =>
                 setPostItemUpdate({
                   ...postItemUpdate,
-                  postImage: e.target.value,
+                  image: e.target.value,
                 })
               }
             />
           </Form.Item>
 
           <Form.Item
-            name="body"
-            label="Post Content"
+            name="content"
+            label="Article Content"
             rules={[{ required: true }]}
           >
             <Input.TextArea
               allowClear
               showCount
               onChange={(e: any) =>
-                setPostItemUpdate({ ...postItemUpdate, body: e.target.value })
+                setPostItemUpdate({
+                  ...postItemUpdate,
+                  content: e.target.value,
+                })
               }
             />
           </Form.Item>

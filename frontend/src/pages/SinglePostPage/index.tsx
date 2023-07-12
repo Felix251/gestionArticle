@@ -23,8 +23,8 @@ const SinglePostPage = () => {
       {isError && <>Something goes Wrong</>}
       {post && (
         <Card>
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
+          <h1>{post.titre}</h1>
+          <p>{post.content}</p>
         </Card>
       )}
       {/* <Link to={`/editPost/${post.id}`} className='button'>

@@ -1,6 +1,7 @@
 export interface IPost {
-  id: number;
-  postImage: string;
-  title: string;
-  body: string;
+  id?: number;
+  titre: string;
+  content: string;
+  image: string;
+  categorieName: String;
 }

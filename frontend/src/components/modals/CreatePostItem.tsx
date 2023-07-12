@@ -1,4 +1,4 @@
-import { Modal, Form, Input } from "antd";
+import { Modal, Form, Input, Radio } from "antd";
 import React from "react";
 import { IPost } from "../../models/IPost";
 import { postAPI } from "../../store/api/postAPI";
@@ -21,17 +21,19 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
   const [createPost, {}] = postAPI.useCreatePostMutation();
 
   const [postItem, setPostItem] = React.useState({
-    title: "",
-    body: "",
-    postImage: "",
+    titre: "",
+    content: "",
+    image: "",
+    categorieName: "",
   } as IPost);
 
   const onFinish = async (values: any) => {
     try {
       await createPost({
-        title: postItem.title,
-        body: postItem.body,
-        postImage: postItem.postImage,
+        titre: postItem.titre,
+        content: postItem.content,
+        image: postItem.image,
+        categorieName: postItem.categorieName,
       } as IPost);
       form.resetFields();
       onCancel();
@@ -53,43 +55,60 @@ const CreatePostItem = ({ open, onCancel }: CreatePostItemProps) => {
       >
         <Form {...layout} form={form} name="control-hooks">
           <Form.Item
-            name="title"
-            label="Post Title"
+            name="titre"
+            label="Article Title"
             rules={[{ required: true }]}
           >
             <Input
               onChange={(e: { target: { value: string } }) =>
-                setPostItem({ ...postItem, title: e.target.value })
+                setPostItem({ ...postItem, titre: e.target.value })
               }
-              value={postItem.title}
+              value={postItem.titre}
             />
           </Form.Item>
 
           <Form.Item
-            name="postImage"
-            label="Post Image"
+            name="image"
+            label="Article Image"
             rules={[{ required: true }]}
           >
             <Input
               onChange={(e: { target: { value: string } }) =>
-                setPostItem({ ...postItem, postImage: e.target.value })
+                setPostItem({ ...postItem, image: e.target.value })
               }
-              value={postItem.postImage}
+              value={postItem.image}
             />
+          </Form.Item>
+          <Form.Item
+            name="categorieName"
+            label="Article categorie"
+            rules={[{ required: true }]}
+          >
+            <Radio.Group
+              onChange={(e) =>
+                setPostItem({ ...postItem, categorieName: e.target.value })
+              }
+              value={postItem.categorieName}
+            >
+              <Radio value="Sport">Sport</Radio>
+              <Radio value="Sante">Sante</Radio>
+              <Radio value="Education">Education</Radio>
+              <Radio value="Technologie">Technologie</Radio>
+            </Radio.Group>
           </Form.Item>
 
           <Form.Item
-            name="body"
-            label="Post Content"
+            name="content"
+            label="Article Content"
             rules={[{ required: true }]}
           >
             <Input.TextArea
               allowClear
               showCount
               onChange={(e: { target: { value: any } }) =>
-                setPostItem({ ...postItem, body: e.target.value })
+                setPostItem({ ...postItem, content: e.target.value })
               }
-              value={postItem.body}
+              value={postItem.content}
             />
           </Form.Item>
         </Form>

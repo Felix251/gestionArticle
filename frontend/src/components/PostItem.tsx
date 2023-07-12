@@ -22,7 +22,7 @@ const PostItem = ({ post, remove }: PostItemProps) => {
 
   const { addFavorite, removeFavorite } = useActions();
   const { favorites } = useAppSelector((state) => state.favoritePosts);
-  const [isFav, setIsFav] = useState(favorites.includes(post.title));
+  const [isFav, setIsFav] = useState(favorites.includes(post.titre));
 
   const handleCancelUpdate = () => {
     setIsModalOpen(false);
@@ -48,20 +48,20 @@ const PostItem = ({ post, remove }: PostItemProps) => {
   // Favorites
   const addToFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    addFavorite(post.title);
+    addFavorite(post.titre);
     setIsFav(true);
   };
 
   const removeFromFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    removeFavorite(post.title);
+    removeFavorite(post.titre);
     setIsFav(false);
   };
 
   return (
     <>
       <UpdatePostItem
-        title={`Update Post: ${post.title}`}
+        title={`Update Post: ${post.titre}`}
         open={isModalOpen}
         onCancel={handleCancelUpdate}
         postItem={post}
@@ -71,11 +71,11 @@ const PostItem = ({ post, remove }: PostItemProps) => {
         open={isConfirmRemoveOpen}
         title="Please confirm Remove"
         onCancel={handleCloseRemoveModal}
-        contentRemove={post.title}
+        contentRemove={post.titre}
       />
       <Card
         style={{ width: "100%", marginBottom: 20 }}
-        cover={<img alt="example" src={post.postImage} />}
+        cover={<img alt="example" src={post.image} />}
         actions={[
           <EditOutlined key="edit" onClick={handlePostUpdateOpen} />,
           <DeleteOutlined key="delete" onClick={handleOpenRemoveModal} />,
@@ -83,8 +83,8 @@ const PostItem = ({ post, remove }: PostItemProps) => {
       >
         <Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          title={post.title}
-          description={post.body.substring(0, 100)}
+          title={post.titre}
+          description={post.content.substring(0, 100)}
         />
         <div className="readMoreWrap">
           <Link to={`/articles/${post.id}`}>Read more...</Link>

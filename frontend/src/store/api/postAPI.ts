@@ -10,21 +10,17 @@ export const postAPI = createApi({
   tagTypes: ["Post"],
   endpoints: (build) => ({
     fetchAllPosts: build.query<IPost[], number>({
-      query: (limit: number = 9, page: number = 1) => ({
-        url: `/posts`,
-        params: {
-          _limit: limit,
-          _page: page,
-        },
+      query: () => ({
+        url: `/article`,
       }),
       providesTags: (result) => ["Post"],
     }),
     getSinglePost: build.query({
-      query: (postId) => `/posts/${postId}`,
+      query: (postId) => `/article/${postId}`,
     }),
     createPost: build.mutation<IPost, IPost>({
       query: (post) => ({
-        url: `/posts`,
+        url: `/article`,
         method: "POST",
         body: post,
       }),
@@ -32,15 +28,15 @@ export const postAPI = createApi({
     }),
     updatePost: build.mutation<IPost, IPost>({
       query: (post) => ({
-        url: `/posts/${post.id}`,
-        method: "PUT",
+        url: `/article/${post.id}`,
+        method: "PATCH",
         body: post,
       }),
       invalidatesTags: ["Post"],
     }),
     deletePost: build.mutation<IPost, IPost>({
       query: (post) => ({
-        url: `/posts/${post.id}`,
+        url: `/article/${post.id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Post"],
