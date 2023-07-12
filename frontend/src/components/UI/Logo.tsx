@@ -18,7 +18,7 @@ const Logo = ({ logoSize, logoColor, children }: LogoProps) => {
         color: logoColor ? logoColor : "#000",
       }}
     >
-      💎 {children}
+      {children}
     </Title>
   );
 };

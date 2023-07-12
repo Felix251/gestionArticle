@@ -11,8 +11,7 @@ const { Header } = Layout;
 const items: MenuProps["items"] = [
   { label: <NavLink to="/">Home</NavLink>, key: "/" },
   { label: <NavLink to="/articles">Articles</NavLink>, key: "/articles" },
-  { label: <NavLink to="/about">About Us</NavLink>, key: "/about" },
-  { label: <NavLink to="/contact-us">Contact Us</NavLink>, key: "/contact-us" },
+  { label: <NavLink to="/login">Login</NavLink>, key: "/login" },
 ];
 
 const HeaderSite: React.FC = () => {

@@ -1,7 +1,7 @@
 import BlankLayout from "../layouts/LandingLayout";
-import AboutPage from "../pages/AboutPage";
-import ContactUsPage from "../pages/ContactUsPage";
+import AdminPage from "../pages/AdminPage";
 import HomePage from "../pages/HomePage";
+import Login from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
 import ErrorRouterElement from "./ErrorRouterElement";
 
@@ -15,16 +15,16 @@ const LandingRoutes = {
       index: true,
     },
     {
-      path: "/about",
-      element: <AboutPage />,
-    },
-    {
-      path: "/contact-us",
-      element: <ContactUsPage />,
+      path: "/login",
+      element: <Login />,
     },
     {
       path: "/profile",
       element: <ProfilePage />,
+    },
+    {
+      path: "/admin",
+      element: <AdminPage />,
     },
   ],
 };
