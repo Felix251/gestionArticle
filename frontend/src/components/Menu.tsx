@@ -10,29 +10,23 @@ export const Menu = () => {
   const defaultUsers: User[] = [
     {
       id: 1,
-      name: "Bob",
-      address: "Dublin",
-      age: "26",
-      profession: "Software Engineer",
-      interestRate: "4",
+      login: "Bob",
+      password: "Dublin",
+      tokenGenerate: "4",
     },
     {
       id: 2,
-      name: "John",
-      address: "Galway",
-      age: "24",
-      profession: "Software Engineer",
-      interestRate: "5",
+      login: "John",
+      password: "Galway",
+      tokenGenerate: "5",
     },
   ];
 
   const initCurrentUser: User = {
     id: 0,
-    name: "",
-    address: "",
-    age: "",
-    profession: "",
-    interestRate: "",
+    login: "",
+    password: "",
+    tokenGenerate: "",
   };
 
   const [users, setUsers] = useState<User[]>(defaultUsers);
@@ -111,18 +105,11 @@ export const Menu = () => {
           </div>
           <Table dataSource={users} bordered>
             <Table.Column title="#" dataIndex="id" key="id" />
-            <Table.Column title="Name" dataIndex="name" key="name" />
-            <Table.Column title="Address" dataIndex="address" key="address" />
-            <Table.Column title="Age" dataIndex="age" key="age" />
+            <Table.Column title="Login" dataIndex="login" key="login" />
             <Table.Column
-              title="Profession"
-              dataIndex="profession"
-              key="profession"
-            />
-            <Table.Column
-              title="Sport Interest Rate"
-              dataIndex="interestRate"
-              key="interestRate"
+              title="Token Generate"
+              dataIndex="tokenGenerate"
+              key="tokenGenerate"
             />
             <Table.Column
               title="Actions"
@@ -162,22 +149,14 @@ export const Menu = () => {
           >
             <h2>{editing ? "Edit User" : "Add User"}</h2>
             <Form.Item
-              label="Name"
-              name="name"
-              rules={[{ required: true, message: "Please enter name" }]}
+              label="Login"
+              name="login"
+              rules={[{ required: true, message: "Please enter login" }]}
             >
               <input className="ant-input" />
             </Form.Item>
-            <Form.Item label="Address" name="address">
-              <input className="ant-input" />
-            </Form.Item>
-            <Form.Item label="Age" name="age">
-              <input type="number" className="ant-input" />
-            </Form.Item>
-            <Form.Item label="Profession" name="profession">
-              <input className="ant-input" />
-            </Form.Item>
-            <Form.Item label="Sport Interest Rate" name="interestRate">
+           
+            <Form.Item label="Token Generate" name="tokenGenerate">
               <Select className="ant-select">
                 {rates.map((rate) => (
                   <Option key={rate} value={rate}>
